@@ -1,38 +1,41 @@
 import java.util.*;
 
+/* There is only one for loop, the only thing will affect the running time in for loop is the relationship of i,  the loop just go through all the stuff in the st1.length one by one, there is no ohter relationship in the loop, So the running time should be O(N)Linear.
+**/
 public class Exercise22_3 {
   public static void main(String[] args) {
+      int o = -1; // for index
+      int C = 0; // for count
       Scanner input = new Scanner(System.in);
     
-      System.out.print("Enter a string s1: ");
-      String s1 = input.nextLine();
-      System.out.print("Enter a string s2: ");
-      String s2 = input.nextLine();
+      System.out.print("Enter the first string: ");
+      String st1 = input.nextLine();
+      System.out.print("Enter the second string: ");
+      String st2 = input.nextLine();
     
-      int index = -1;
-      int count = 0;
+      
     
-      for (int i = 0; i < s1.length(); i++) {
-        if (s1.charAt(i) == s2.charAt(0) && count == 0) {
-          index = i;
-          count++;
+      for (int i = 0; i < st1.length(); i++) {
+        if (st1.charAt(i) == st2.charAt(0) && C == 0) {
+          o = i;
+          C++;
         }
-        else if (s1.charAt(i) == s2.charAt(count)) {
-          count++;
+        else if (st1.charAt(i) == st2.charAt(C)) {
+          C++;
         }
         else {
-          count = 0;
-          index = -1;
+          C = 0;
+          o = -1;
         }
         
-        if (count == s2.length())
+        if (C == st2.length())
           break;
       }
     
-      if (index > 1)
-        System.out.println("matched at index " + index);
+      if (C > 1)
+        System.out.println("Matched at index " + C);
       else
-        System.out.println("string2 is not a substring of string1");
+        System.out.println("Error");
     }
   
   
